@@ -1,15 +1,10 @@
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 
-<<<<<<< HEAD
 from posts.models import Comment, Post, Group, Follow
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
-=======
-
-from posts.models import Comment, Post
->>>>>>> 44e7ce60e9f815f6f18663d3eb4b27fb03f32c47
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -28,7 +23,6 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Comment
-<<<<<<< HEAD
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -55,5 +49,3 @@ class FollowSerializer(serializers.ModelSerializer):
                 'Нельзя подписаться на самого себя'
             )
         return value
-=======
->>>>>>> 44e7ce60e9f815f6f18663d3eb4b27fb03f32c47

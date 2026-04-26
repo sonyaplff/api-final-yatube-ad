@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import PostViewSet, CommentViewSet, GroupViewSet, FollowViewSet
@@ -16,9 +15,3 @@ router.register(
 urlpatterns = [
     path('v1/', include(router.urls)),
 ]
-=======
-from django.urls import path
-
-urlpatterns = [
-]
->>>>>>> 44e7ce60e9f815f6f18663d3eb4b27fb03f32c47
