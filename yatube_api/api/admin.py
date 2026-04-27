@@ -1,1 +1,1 @@
-"""Admin configuration for API."""
+"""Admin configuration for API.""" 
