@@ -68,4 +68,5 @@ class FollowViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """Save user when creating follow."""
-        serializer.save(user=self.request.user)
+        serializer.save(user=self.request.user) 
+ 
