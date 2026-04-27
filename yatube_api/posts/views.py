@@ -1,2 +1,2 @@
-"""Views for posts app.""" 
- 
+"""Views for posts app."""
+

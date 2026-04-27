@@ -16,5 +16,5 @@ class IsAuthorOrReadOnly(permissions.BasePermission):
         """Check if user has permission to access object."""
         if request.method in permissions.SAFE_METHODS:
             return True
-        return obj.author == request.user 
- 
+        return obj.author == request.user
+
