@@ -16,6 +16,7 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Post
+        read_only_fields = ('author', 'pub_date')
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -28,6 +29,7 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Comment
+        read_only_fields = ('author', 'created', 'post')
 
 
 class GroupSerializer(serializers.ModelSerializer):

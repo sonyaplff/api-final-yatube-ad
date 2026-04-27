@@ -3,7 +3,7 @@ from rest_framework import viewsets, filters
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 
-from posts.models import Post, Group, Follow
+from posts.models import Post, Group, Follow, Comment
 from .serializers import (
     PostSerializer,
     CommentSerializer,
@@ -28,6 +28,7 @@ class PostViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     """ViewSet for comments."""
 
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [IsAuthorOrReadOnly]
 
