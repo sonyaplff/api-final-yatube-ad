@@ -1,3 +1,4 @@
+"""Serializers for API."""
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 
@@ -8,6 +9,8 @@ User = get_user_model()
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """Serializer for Post model."""
+
     author = SlugRelatedField(slug_field='username', read_only=True)
 
     class Meta:
@@ -16,6 +19,8 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    """Serializer for Comment model."""
+
     author = serializers.SlugRelatedField(
         read_only=True, slug_field='username'
     )
@@ -26,12 +31,16 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
+    """Serializer for Group model."""
+
     class Meta:
         fields = '__all__'
         model = Group
 
 
 class FollowSerializer(serializers.ModelSerializer):
+    """Serializer for Follow model."""
+
     user = serializers.StringRelatedField(read_only=True)
     following = serializers.SlugRelatedField(
         slug_field='username',
@@ -43,6 +52,7 @@ class FollowSerializer(serializers.ModelSerializer):
         model = Follow
 
     def validate_following(self, value):
+        """Prevent user from following themselves."""
         request = self.context.get('request')
         if request and request.user == value:
             raise serializers.ValidationError(
