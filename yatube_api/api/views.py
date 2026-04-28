@@ -1,4 +1,4 @@
-"""Views for posts app.""""""Views for API."""
+"""Views for API."""
 from rest_framework import viewsets, filters
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404

@@ -54,10 +54,19 @@ class FollowSerializer(serializers.ModelSerializer):
         model = Follow
 
     def validate_following(self, value):
-        """Prevent user from following themselves."""
+        """Prevent user from following themselves or duplicate follow."""
         request = self.context.get('request')
-        if request and request.user == value:
+        if not request:
+            return value
+
+        if request.user == value:
             raise serializers.ValidationError(
                 'Нельзя подписаться на самого себя'
             )
+
+        if Follow.objects.filter(user=request.user, following=value).exists():
+            raise serializers.ValidationError(
+                'Вы уже подписаны на этого пользователя'
+            )
+
         return value
