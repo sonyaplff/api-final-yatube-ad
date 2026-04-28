@@ -1,4 +1,4 @@
-"""Views for API."""
+"""Views for posts app.""""""Views for API."""
 from rest_framework import viewsets, filters
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
@@ -69,4 +69,3 @@ class FollowViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         """Save user when creating follow."""
         serializer.save(user=self.request.user)
-

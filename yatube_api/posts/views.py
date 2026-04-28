@@ -1,2 +1,1 @@
 """Views for posts app."""
-
